@@ -41,8 +41,6 @@ public class LRU {
 		for(char[] row : tableSlots) {
             printRow(row);
         }
-		System.out.println(active);
-		System.out.println(map);
 	}
 	
 	//so i can search hash map by value
