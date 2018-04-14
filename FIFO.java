@@ -15,8 +15,7 @@ public class FIFO {
 	public void MainFifo(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
-			
-			
+						
 			if(x > 2){x = 0;} //x is keeping track of the rows
 			
 			
@@ -38,6 +37,7 @@ public class FIFO {
 		System.out.println(Arrays.deepToString(tableSlots).replace("], ", "]\n"));
 	}
 	
+	//so i can search hash map by value
 	public static Object getKeyFromValue(Map<String, String> hm, Object value) {
 	    for (Object o : hm.keySet()) {
 	      if (hm.get(o).equals(value)) {
