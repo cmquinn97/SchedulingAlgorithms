@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FIFO {
+public class LRU {
 	char[] arr = Table.CreatePattern();
 	private int rows = Table.pubRows;
 	private int length = Table.pubLength;
@@ -12,7 +12,7 @@ public class FIFO {
 	List<Character> active = new ArrayList<Character>(); //the current pages that are active [0] would be the first in
 	Map<String, String> map = new HashMap<String, String>(); //keeps track of what row the active pages are in
 	
-	public void MainFifo(){
+	public void MainLru(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
 						
@@ -27,6 +27,9 @@ public class FIFO {
 			else if(map.containsKey(Character.toString(arr[i]))){ // not a new page ( page hit)
 				String newtemp = map.get(Character.toString(arr[i]));
 				tableSlots[Integer.valueOf(newtemp)][i] = "+".charAt(0);
+				//next two lines are the difference between lru and fifo. Sends just used page to back of active list
+				active.remove(active.indexOf(arr[i]));
+				active.add(arr[i]);
 				x--;
 				
 				
@@ -38,6 +41,8 @@ public class FIFO {
 		for(char[] row : tableSlots) {
             printRow(row);
         }
+		System.out.println(active);
+		System.out.println(map);
 	}
 	
 	//so i can search hash map by value
@@ -65,6 +70,7 @@ public class FIFO {
 			tableSlots[x][i] = arr[i];
 			active.add(arr[i]); 
 			map.put(Character.toString(arr[i]), Integer.toString(x));
+			
 		}	
 	}
 	

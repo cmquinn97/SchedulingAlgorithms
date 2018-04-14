@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 
 public class Main {
-	static FIFO fifo = new FIFO();
+	 FIFO fifo = new FIFO();
+	static LRU lru = new LRU();
 
 	public static void main(String[] args) {
-		fifo.MainFifo();
+		lru.MainLru();
 
 	}
 	
