@@ -33,8 +33,11 @@ public class FIFO {
 			}
 			
 		}
+		
 		System.out.println( "Ref Str: " + Table.pattern);
-		System.out.println(Arrays.deepToString(tableSlots).replace("], ", "]\n"));
+		for(char[] row : tableSlots) {
+            printRow(row);
+        }
 	}
 	
 	//so i can search hash map by value
@@ -64,6 +67,14 @@ public class FIFO {
 			map.put(Character.toString(arr[i]), Integer.toString(x));
 		}	
 	}
+	
+	 public static void printRow(char[] row) {
+	        for (char i : row) {
+	            System.out.print(i);
+	            System.out.print("\t");
+	        }
+	        System.out.println();
+	    }
 	
 	
 }
