@@ -70,8 +70,14 @@ public class FIFO {
 	
 	 public static void printRow(char[] row) {
 	        for (char i : row) {
-	            System.out.print(i);
-	            System.out.print("\t");
+	        	if(i == 0){
+	        		System.out.print("*");
+	        		System.out.print("\t");
+	        	}else{
+	        		System.out.print(i);
+		            System.out.print("\t");
+	        	}
+	            
 	        }
 	        System.out.println();
 	    }
