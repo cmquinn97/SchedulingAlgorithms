@@ -5,18 +5,21 @@ import java.util.List;
 import java.util.Map;
 
 public class FIFO {
-	char[] arr = Table.CreatePattern();
+	char[] arr;
 	private int rows = Table.pubRows;
 	private int length = Table.pubLength;
 	char[][] tableSlots = new char[rows][length];
 	List<Character> active = new ArrayList<Character>(); //the current pages that are active [0] would be the first in
 	Map<String, String> map = new HashMap<String, String>(); //keeps track of what row the active pages are in
 	
+	public FIFO(char[] arr){
+		this.arr = arr;
+	}
 	public void MainFifo(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
 						
-			if(x > 2){x = 0;} //x is keeping track of the rows
+			if(x > rows - 1){x = 0;} //x is keeping track of the rows
 			
 			
 			if(!map.containsKey(Character.toString(arr[i]))) //if this is a new page
@@ -35,7 +38,10 @@ public class FIFO {
 		}
 		
 		System.out.println( "Ref Str: " + Table.pattern);
+		int n = 1;
 		for(char[] row : tableSlots) {
+			System.out.print("FIFO " + n + ": ");
+			n++;
             printRow(row);
         }
 	}
@@ -52,7 +58,7 @@ public class FIFO {
 	
 	public void newPage(char[] arr, int i, int x){
 		//if there is now row which has not been filled yet
-		if(active.size() > 2){ 
+		if(active.size() > (rows - 1)){ 
 			String temp = (String) getKeyFromValue(map,map.get(Character.toString((char) active.get(0))));
 			map.put(Character.toString(arr[i]) , map.get(temp));
 			map.remove(temp);
