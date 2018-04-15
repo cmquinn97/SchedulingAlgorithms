@@ -11,6 +11,7 @@ public class LRU {
 	char[][] tableSlots = new char[rows][length];
 	List<Character> active = new ArrayList<Character>(); //the current pages that are active [0] would be the first in
 	Map<String, String> map = new HashMap<String, String>(); //keeps track of what row the active pages are in
+	public int hits;
 	
 	public LRU(char[] arr){
 		this.arr = arr;
@@ -34,6 +35,7 @@ public class LRU {
 				//next two lines are the difference between lru and fifo. Sends just used page to back of active list
 				active.remove(active.indexOf(arr[i]));
 				active.add(arr[i]);
+				hits++;
 				x--;
 				
 				

@@ -12,6 +12,7 @@ public class RAND {
 	char[][] tableSlots = new char[rows][length];
 	List<Character> active = new ArrayList<Character>(); //the current pages that are active [0] would be the first in
 	Map<String, String> map = new HashMap<String, String>(); //keeps track of what row the active pages are in
+	public int hits;
 	
 	public RAND(char[] arr){
 		this.arr = arr;
@@ -32,6 +33,7 @@ public class RAND {
 			else if(map.containsKey(Character.toString(arr[i]))){ // not a new page ( page hit)
 				String newtemp = map.get(Character.toString(arr[i]));
 				tableSlots[Integer.valueOf(newtemp)][i] = "+".charAt(0);
+				hits++;
 				x--;
 				
 				

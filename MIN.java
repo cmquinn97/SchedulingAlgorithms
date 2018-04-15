@@ -13,6 +13,7 @@ public class MIN {
 	Map<String, String> map = new HashMap<String, String>(); //keeps track of what row the active pages are in
 	String pattern = Table.pattern;
 	List<Character> patList = new ArrayList<Character>();
+	public int hits;
 	
 	public MIN(char[] arr){
 		this.arr = arr;
@@ -39,6 +40,7 @@ public class MIN {
 			else if(map.containsKey(Character.toString(arr[i]))){ // not a new page ( page hit)
 				String newtemp = map.get(Character.toString(arr[i]));
 				tableSlots[Integer.valueOf(newtemp)][i] = "+".charAt(0);
+				hits++;
 				x--;
 				patList.remove(0);
 			}
