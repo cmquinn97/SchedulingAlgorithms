@@ -15,6 +15,7 @@ public class FIFO {
 	public FIFO(char[] arr){
 		this.arr = arr;
 	}
+	
 	public void MainFifo(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
@@ -37,7 +38,8 @@ public class FIFO {
 			
 		}
 		
-		System.out.println( "Ref Str: " + Table.pattern);
+		//print results
+		printString(Table.pattern.toCharArray());
 		int n = 1;
 		for(char[] row : tableSlots) {
 			System.out.print("FIFO " + n + ": ");
@@ -87,6 +89,16 @@ public class FIFO {
 	        }
 	        System.out.println();
 	    }
+	 
+	 public static void printString (char[] arr){
+		 System.out.println("\n");
+		 System.out.print("Ref Str: ");
+		 for(char letter : arr){
+			 System.out.print(letter + "  ");
+		 }
+		 System.out.println("\n");
+		 
+	 }
 	
 	
 }

@@ -17,6 +17,7 @@ public class MIN {
 	public MIN(char[] arr){
 		this.arr = arr;
 	}
+	
 	public void MainMin(){
 		
 		for(char elem : pattern.toCharArray()){
@@ -44,7 +45,8 @@ public class MIN {
 			
 		}
 		
-		System.out.println( "Ref Str: " + pattern);
+		//print results
+		printString(pattern.toCharArray());
 		int n = 1;
 		for(char[] row : tableSlots) {
 			System.out.print("MIN " + n + ": ");
@@ -124,6 +126,16 @@ public class MIN {
 				toRemove = minArray.get((minArray.size() - 1));
 			}
 			return toRemove;
+	 }
+	 
+	 public static void printString (char[] arr){
+		 System.out.println("\n");
+		 System.out.print("Ref Str: ");
+		 for(char letter : arr){
+			 System.out.print(letter + "  ");
+		 }
+		 System.out.println("\n");
+		 
 	 }
 	
 	

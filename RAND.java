@@ -16,6 +16,7 @@ public class RAND {
 	public RAND(char[] arr){
 		this.arr = arr;
 	}
+	
 	public void MainRand(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
@@ -38,7 +39,8 @@ public class RAND {
 			
 		}
 		
-		System.out.println( "Ref Str: " + Table.pattern);
+		//print results
+		printString(Table.pattern.toCharArray());
 		int n = 1;
 		for(char[] row : tableSlots) {
 			System.out.print("RAND " + n + ": ");
@@ -93,7 +95,16 @@ public class RAND {
 	        }
 	        System.out.println();
 	    }
-	
+	 
+	 public static void printString (char[] arr){
+		 System.out.println("\n");
+		 System.out.print("Ref Str: ");
+		 for(char letter : arr){
+			 System.out.print(letter + "  ");
+		 }
+		 System.out.println("\n");
+		 
+	 }
 	
 }
 

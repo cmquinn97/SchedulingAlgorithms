@@ -15,6 +15,7 @@ public class LRU {
 	public LRU(char[] arr){
 		this.arr = arr;
 	}
+	
 	public void MainLru(){
 		int x = 0;
 		for(int i = 0; i<arr.length; i++,x++){
@@ -40,7 +41,8 @@ public class LRU {
 			
 		}
 		
-		System.out.println( "Ref Str: " + Table.pattern);
+		//print results
+		printString(Table.pattern.toCharArray());
 		int n = 1;
 		for(char[] row : tableSlots) {
 			System.out.print("LRU " + n + ": ");
@@ -92,6 +94,16 @@ public class LRU {
 	        }
 	        System.out.println();
 	    }
+	 
+	 public static void printString (char[] arr){
+		 System.out.println("\n");
+		 System.out.print("Ref Str: ");
+		 for(char letter : arr){
+			 System.out.print(letter + "  ");
+		 }
+		 System.out.println("\n");
+		 
+	 }
 	
 	
 }
